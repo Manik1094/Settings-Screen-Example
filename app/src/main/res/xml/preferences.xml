@@ -2,6 +2,8 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <PreferenceCategory
+        android:title="Basic Settings">
     <SwitchPreference
         android:title="Enable Notifications"
         android:key="notificationsKey"
@@ -11,9 +13,12 @@
     <EditTextPreference
         android:key="nameKey"
         android:title="Enter your name">
-
     </EditTextPreference>
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Advanced Settings">
 
         <SeekBarPreference
             android:key="volumeKey"
@@ -21,6 +26,6 @@
             android:defaultValue="0"
             android:max="10"
             app:min="0" />
-
+    </PreferenceCategory>
 
 </PreferenceScreen>

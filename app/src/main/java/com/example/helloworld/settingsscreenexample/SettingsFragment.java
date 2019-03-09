@@ -16,9 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class SettingsFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     SharedPreferences sharedPreferences;
@@ -27,7 +25,7 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     public void onCreatePreferences(Bundle bundle, String rootKey) {
 
         //Load the preferences from an XML resource
-        setPreferencesFromResource(R.xml.preferences , rootKey);
+        addPreferencesFromResource(R.xml.preferences);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
     }
@@ -36,30 +34,25 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 
-
-
-        //saving boolean data
+        //retreiving boolean data
 
         if(key.equals("notificationsKey")){
             boolean on = sharedPreferences.getBoolean("notificationsKey", false);
-            Log.e("SettingsFragment" , "Value of key : " + on);
             if(on){
-                Toast.makeText(getActivity(), "Checkbox enabled", Toast.LENGTH_SHORT).show();
-               Log.e("SettingsFragment" , "Checkbox enabled");
+                Toast.makeText(getActivity(), "Switch enabled", Toast.LENGTH_SHORT).show();
             }else {
-                Toast.makeText(getActivity(), "checkbox unchecked", Toast.LENGTH_SHORT).show();
-               Log.e("SettingsFragment" , "checkbox unchecked");
+                Toast.makeText(getActivity(), "Switch disabled", Toast.LENGTH_SHORT).show();
             }
-            //saving string data
+            //retreiving string data
         }else if(key.equals("nameKey")){
             String name = sharedPreferences.getString("nameKey"," ");
-            Toast.makeText(getActivity(), "Your name is :"+name, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Your name is "+name, Toast.LENGTH_SHORT).show();
+
+            // retreiving integer data
         }else if(key.equals("volumeKey")){
             int volumeLevel = sharedPreferences.getInt("volumeKey",0);
             Toast.makeText(getActivity(), "Volume Level is:"+String.valueOf(volumeLevel), Toast.LENGTH_SHORT).show();
         }
-
-
     }
 
     @Override
