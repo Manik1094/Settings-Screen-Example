@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SwitchPreference
+        android:title="Enable Notifications"
+        android:key="notificationsKey"
+        android:defaultValue="false">
+    </SwitchPreference>
+
+    <EditTextPreference
+        android:key="nameKey"
+        android:title="Enter your name">
+
+    </EditTextPreference>
+
+
+        <SeekBarPreference
+            android:key="volumeKey"
+            android:title="Volume level"
+            android:defaultValue="0"
+            android:max="10"
+            app:min="0" />
+
+
+</PreferenceScreen>
